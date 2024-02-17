@@ -1,0 +1,625 @@
+
+### register user
+POST http://localhost:8500/api/v1/users/register
+Content-Type: application/json
+
+{
+    "Username": "Kevin Comba" ,
+    "Email": "kevin@gmail.com" ,
+    "Password": "Kevin123",
+    "TagName": "dan",
+    "Location": "Nyeri"
+}
+
+### Login user
+POST http://localhost:8500/api/v1/users/login
+Content-Type: application/json
+
+{
+    "Email": "emmanuel@gmail.com",
+    "Password": "Emmanuel123"
+}
+
+
+### update user
+PUT http://localhost:8500/api/v1/users/update/80e50ae9-d0c1-4fc2-97c1-1e31ade4c46b
+Content-Type: application/json
+
+{
+    "Username":"Abel" ,
+    "TagName":"mkuru",
+    "Location":"Nairobi"
+}
+
+
+### update the user password
+PATCH http://localhost:8500/api/v1/users/patch/80e50ae9-d0c1-4fc2-97c1-1e31ade4c46b
+Content-Type: application/json
+
+{
+    "Password": "@Emmanuel123"
+}
+
+
+
+### Fetching/getting all users
+GET http://localhost:8500/api/v1/users/
+
+
+
+### Fetching/getting single user
+GET http://localhost:8500/api/v1/users/single/e7c60909-858f-4881-8738-5061b8f20644
+
+
+
+### Deleting a single user
+DELETE  http://localhost:8500/api/v1/users/delete/eaf8c520-0851-4681-8de3-2646c0492744
+
+
+
+##POST ENDPOINTS---------------
+
+### create POST
+POST http://localhost:8500/api/v1/posts
+Content-Type: application/json
+
+{
+    "UserID": "80e50ae9-d0c1-4fc2-97c1-1e31ade4c46b" ,
+    "Content": "Another banger!!" ,
+    "Likes": 19,
+    "Comments": 5
+}
+
+### updating a single POST
+PUT http://localhost:8500/api/v1/posts/update/62833ffb-ba35-486d-9d8a-8e88fb710f4d
+Content-Type: application/json
+
+{
+     "Content": "Updated post" ,
+    "Likes": 5,
+    "Comments": 8
+}
+
+
+### update the content
+PATCH http://localhost:8500/api/v1/posts/patch/62833ffb-ba35-486d-9d8a-8e88fb710f4d
+Content-Type: application/json
+
+{
+     "Content": "Gooooooaaaall!!"
+}
+
+### Fetching/getting all posts
+GET http://localhost:8500/api/v1/posts/
+
+
+
+### Fetching/getting single post
+GET http://localhost:8500/api/v1/posts/single/2356e8af-6833-4595-934c-3127cf39467b
+
+
+
+### Deleting a single post
+DELETE  http://localhost:8500/api/v1/posts/delete/2356e8af-6833-4595-934c-3127cf39467b
+
+
+
+
+
+##PHOTOS ENDPOINTS
+
+
+
+### create a photo
+POST http://localhost:8500/api/v1/photos
+Content-Type: application/json
+
+{
+    "UserID": "80e50ae9-d0c1-4fc2-97c1-1e31ade4c46b" ,
+    "PhotoURL": "https://www.pexels.com/photo/a-bunch-of-flowers-in-buckets-and-bags-20079575/"
+}
+
+
+
+
+### updating a single photo
+PUT http://localhost:8500/api/v1/photos/update/14dca267-b0c2-495e-98f2-04c71fb96430
+Content-Type: application/json
+
+{
+    "PhotoURL": "https://images.pexels.com/photos/13991574/pexels-photo-13991574.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+
+}
+
+
+
+### updating only the text
+PATCH http://localhost:8500/api/v1/photos/patch/14dca267-b0c2-495e-98f2-04c71fb96430
+Content-Type: application/json
+
+{
+    "PhotoURL": "https://images.pexels.com/photos/13991574/pexels-photo-13991574.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+
+}
+
+
+
+### Fetching/getting all photos
+GET http://localhost:8500/api/v1/photos/
+
+
+
+### Fetching/getting single photo
+GET http://localhost:8500/api/v1/photos/single/14dca267-b0c2-495e-98f2-04c71fb96430
+
+
+
+### Deleting a single photo
+DELETE  http://localhost:8500/api/v1/photos/delete/326ebfff-2681-4d49-8772-4cae73141e8c
+
+
+## COMMENT END POINTS
+###
+POST http://localhost:8500/api/v1/comments
+Content-Type: application/json
+
+{
+    "UserID": "80e50ae9-d0c1-4fc2-97c1-1e31ade4c46b" ,
+    "PostID": "62833ffb-ba35-486d-9d8a-8e88fb710f4d" ,
+    "Content": "Another one!!" 
+}
+
+###
+PUT http://localhost:8500/api/v1/comments/update/b4f307bf-73af-40c2-819d-d9cd2126abb9
+Content-Type: application/json
+
+{
+     "Content": "What a Gwan!!" 
+}
+
+
+### updating only the text
+PATCH http://localhost:8500/api/v1/comments/patch/b4f307bf-73af-40c2-819d-d9cd2126abb9
+Content-Type: application/json
+
+{
+     "Content": "Wagwan!"
+}
+
+### Fetching/getting all comments
+GET http://localhost:8500/api/v1/comments/
+
+
+
+### Fetching/getting single comment
+GET http://localhost:8500/api/v1/comments/single/b4f307bf-73af-40c2-819d-d9cd2126abb9
+
+
+
+### Deleting a single comment
+DELETE  http://localhost:8500/api/v1/posts/delete/a61d9928-2180-441a-af8b-e146e55c168a
+
+
+
+
+
+
+###GROUP END POINT
+
+### create a group
+POST http://localhost:8500/api/v1/groups
+Content-Type: application/json
+
+{
+    "GroupName": "Python group" ,
+    "Description": "SQL project" 
+}
+
+
+### updating a single group
+PUT http://localhost:8500/api/v1/groups/update/23e2ad98-c62a-44d0-a3d9-fe9ad6a6f639
+Content-Type: application/json
+
+{
+    "GroupName": "Edited Python Group" ,
+    "Description": "This is one of the best groups"
+}
+
+### updating only the text
+PATCH http://localhost:8500/api/v1/groups/patch/23e2ad98-c62a-44d0-a3d9-fe9ad6a6f639
+Content-Type: application/json
+
+{
+    "GroupName": "Patched Python group" 
+}
+
+
+
+### Fetching/getting all groups
+GET http://localhost:8500/api/v1/groups/
+
+
+### Fetching/getting single group
+GET http://localhost:8500/api/v1/groups/single/401609f8-5b74-4818-8316-a744612e7bb2
+
+### Deleting a single group
+DELETE  http://localhost:8500/api/v1/groups/delete/401609f8-5b74-4818-8316-a744612e7bb2
+
+
+
+
+## EVENT END POINT
+
+### create an event
+POST http://localhost:8500/api/v1/events
+Content-Type: application/json
+
+{
+    "EventName": "Koita" ,
+    "EventPosterURL": "https://www.pexels.com/photo/a-bunch-of-flowers-in-buckets-and-bags-20079575/" ,
+    "Description": "Koi(prewedding) at Eldoret",
+    "Location": "Eldoret Town",
+    "EventDate": "2024-02-16"
+}
+
+### updating a single event
+PUT http://localhost:8500/api/v1/events/update/c206c13d-2f91-4c23-abbd-493167759a70
+Content-Type: application/json
+
+{
+    "EventPosterURL": "https://www.pexels.com/photo/a-bunch-of-flowers-in-buckets-and-bags-20079575/" ,
+    "Description": "Tech meet at Ngong Hills",
+    "Location": "Diani",
+    "EventDate": "20/2/2024"
+}
+
+
+
+### Fetching/getting all Events
+GET http://localhost:8500/api/v1/events/
+
+
+### Fetching/getting single event
+GET http://localhost:8500/api/v1/events/single/5b63cfd6-772d-49cd-a2b0-204ce851a5af
+
+### Deleting a single event
+DELETE  http://localhost:8500/api/v1/events/delete/c206c13d-2f91-4c23-abbd-493167759a70
+
+
+
+                ## MESSAGE END POINTS
+
+### create a message
+POST http://localhost:8500/api/v1/message
+Content-Type: application/json
+
+{
+    "SenderID": "e7c60909-858f-4881-8738-5061b8f20644",
+    "ReceiverID": "eaf8c520-0851-4681-8de3-2646c0492744",
+    "Content": "Vipi nigga!"
+}
+
+
+### updating a single message
+PUT http://localhost:8500/api/v1/message/update/
+Content-Type: application/json
+
+{
+    "MessageID": ""
+
+}
+
+### Fetching/getting all messages
+GET http://localhost:8500/api/v1/messages/
+
+
+### Fetching/getting single messaget
+GET http://localhost:8500/api/v1/message/single/
+
+### Deleting a single message
+DELETE  http://localhost:8500/api/v1/message/delete/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##GROUPS END POINTS
+
+### create a group
+POST http://localhost:8500/api/v1/groups
+Content-Type: application/json
+
+{
+    "Username": "Leah" ,
+    "Email": "leah@gmail.com" ,
+    "Password": "1234562@La",
+    "TagName": "@leah",
+    "Location": "Nyeri"
+}
+
+### updating a single group
+PUT http://localhost:8500/api/v1/groups/update/2
+Content-Type: application/json
+
+{
+    "Username":"Leah2" ,
+    "TagName":"@leah",
+    "Location":"Nyeri"
+}
+
+### updating only the text
+PATCH http://localhost:8500/api/v1/groups/patch/3
+Content-Type: application/json
+
+{
+    "Username":"Leah" ,
+    "TagName":"@leah",
+    "Location":"Nyeri"
+}
+
+
+
+### Fetching/getting all groups
+GET http://localhost:8500/api/v1/groups/
+
+
+### Fetching/getting single group
+GET http://localhost:8500/api/v1/groups/single/1
+
+### Deleting a single group
+DELETE  http://localhost:8500/api/v1/groups/delete/1
+
+
+
+
+##****************************************************EVENTS**************************************************************##
+
+### create an event
+POST http://localhost:8500/api/v1/events
+Content-Type: application/json
+
+{
+    "Username": "Leah" ,
+    "Email": "leah@gmail.com" ,
+    "Password": "1234562@La",
+    "TagName": "@leah",
+    "Location": "Nyeri"
+}
+
+### updating a single event
+PUT http://localhost:8500/api/v1/events/update/2
+Content-Type: application/json
+
+{
+    "Username":"Leah2" ,
+    "TagName":"@leah",
+    "Location":"Nyeri"
+}
+
+
+
+### Fetching/getting all Events
+GET http://localhost:8500/api/v1/events/
+
+
+### Fetching/getting single event
+GET http://localhost:8500/api/v1/events/single/1
+
+### Deleting a single event
+DELETE  http://localhost:8500/api/v1/events/delete/1
+
+
+
+##****************************************************FRIENDSHIP**************************************************************##
+
+### Become friends
+POST http://localhost:8500/api/v1/friends
+Content-Type: application/json
+
+{
+    "Username": "Leah" ,
+    "Email": "leah@gmail.com" ,
+    "Password": "1234562@La",
+    "TagName": "@leah",
+    "Location": "Nyeri"
+}
+
+### updating a single friendship
+PUT http://localhost:8500/api/v1/friends/update/2
+Content-Type: application/json
+
+{
+    "Username":"Leah2" ,
+    "TagName":"@leah",
+    "Location":"Nyeri"
+}
+
+
+
+### Fetching/getting all friends
+GET http://localhost:8500/api/v1/friends/
+
+
+### Fetching/getting single friend
+GET http://localhost:8500/api/v1/friends/single/1
+
+### Deleting a single pfriend
+DELETE  http://localhost:8500/api/v1/friends/delete/1
+
+
+##****************************************************MESSAGES**************************************************************##
+
+### create a message
+POST http://localhost:8500/api/v1/message
+Content-Type: application/json
+
+{
+    "Username": "Leah" ,
+    "Email": "leah@gmail.com" ,
+    "Password": "1234562@La",
+    "TagName": "@leah",
+    "Location": "Nyeri"
+}
+
+### updating a single message
+PUT http://localhost:8500/api/v1/message/update/2
+Content-Type: application/json
+
+{
+    "Username":"Leah2" ,
+    "TagName":"@leah",
+    "Location":"Nyeri"
+}
+
+
+
+### Fetching/getting all messages
+GET http://localhost:8500/api/v1/message/
+
+
+### Fetching/getting single messaget
+GET http://localhost:8500/api/v1/message/single/1
+
+### Deleting a single message
+DELETE  http://localhost:8500/api/v1/message/delete/1
