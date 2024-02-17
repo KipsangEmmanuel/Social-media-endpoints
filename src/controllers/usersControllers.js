@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt'
 import {v4} from 'uuid'
-import { authenticateUserService, deleteUserServices, getAllUsersService, getSingleUserServices, registerNewUserService, updateUserPasswordService, updateUserService } from "../services/userService.js"
+import { authenticateUserService, deleteUserServices, findUserByEmailService, getAllUsersService, getSingleUserServices, registerNewUserService, updateUserPasswordService, updateUserService } from "../services/userService.js"
 import { RegisterUserValidator,loginUserValidator, updateUserPasswordValidator, updateUserValidator } from "../utils/Validators.js";
 import { notAuthorized, sendCreated, sendDeleteSuccess, sendServerError} from "../helpers/helperFunctions.js"
 
@@ -8,8 +8,15 @@ import { notAuthorized, sendCreated, sendDeleteSuccess, sendServerError} from ".
 export const createNewUserController = async (req, res) => {
     try {
       const { Username, Email, Password, TagName, Location } = req.body;
-      console.log(req.body);
-  
+      // console.log(req.body);
+
+      const existingUser = await findUserByEmailService(Email);
+      if(existingUser) {
+        return res.status(400).json({
+          message: "User already exist!"
+        })
+      }
+
       const UserID = v4();
       const { error } = RegisterUserValidator({ Username, Email, Password, TagName, Location });
       console.log("error",error);

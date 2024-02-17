@@ -4,11 +4,11 @@ POST http://localhost:8500/api/v1/users/register
 Content-Type: application/json
 
 {
-    "Username": "Kevin Comba" ,
-    "Email": "kevin@gmail.com" ,
-    "Password": "Kevin123",
+    "Username": "Daniel Karanja" ,
+    "Email": "karanja@gmail.com" ,
+    "Password": "Daniel123",
     "TagName": "dan",
-    "Location": "Nyeri"
+    "Location": "Nairobi"
 }
 
 ### Login user

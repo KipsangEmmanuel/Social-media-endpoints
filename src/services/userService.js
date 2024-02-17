@@ -99,6 +99,23 @@ export const getSingleUserServices=async(UserID)=>{
 }
 
 
+export const findUserByEmailService = async(email) => {
+  try {
+    const result = await poolRequest()
+      .input('Email', sql.VarChar, email)
+      .query('SELECT * FROM tbl_user WHERE Email = @Email')
+
+     return result.recordset.length > 0 ? result.recordset[0] : null
+    
+  } catch (error) {
+    throw new Error(error.message)
+    
+  }
+
+}
+
+
+
 // Fetching all available users in the database
 export const getAllUsersService=async(users)=>{
     try {
