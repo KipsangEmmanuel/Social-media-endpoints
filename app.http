@@ -316,7 +316,7 @@ GET http://localhost:8500/api/v1/messages/
 GET http://localhost:8500/api/v1/messages/single/5c58acd7-a66b-4659-8543-71e39a569a94
 
 ### Deleting a single message
-DELETE  http://localhost:8500/api/v1/message/delete/
+DELETE  http://localhost:8500/api/v1/messages/delete/6b032f70-1da4-4cce-9d9f-510f7fd5df96
 
 
 

@@ -79,7 +79,7 @@ export const getAllMessagesService=async()=>{
     }
 }
 
-// Fetching delete post
+// Fetching delete message
 export const deleteMessageServices=async(MessageID)=>{
   const deletedMessage= await poolRequest()
   .input('MessageID', sql.VarChar,MessageID)

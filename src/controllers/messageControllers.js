@@ -111,11 +111,12 @@ export const createMessageController = async (req, res) => {
 
   export const deleteMessageController=async(req,res)=>{
     try {
-      const {PostID}=req.params
-      const deletedMessage=await deleteMessageServices(PostID)
+      const {MessageID}=req.params
+      const deletedMessage=await deleteMessageServices(MessageID)
       console.log('deleted message',deletedMessage); 
-      sendDeleteSuccess(res,"Deleted successfully")
+      sendDeleteSuccess(res,"Message Deleted successfully")
     } catch (error) {
       return error
     }
   }
+
