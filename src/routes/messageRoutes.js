@@ -1,12 +1,11 @@
 import {Router} from 'express';
-import { createMessageController, deleteMessageController, getAllMessagesController, getSingleMessageController, updateMessageControllers } from '../controllers/messageControllers.js';
-import { updateContentControllers } from '../controllers/postsControllers.js';
+import { createMessageController, deleteMessageController, getAllMessagesController, getSingleMessageController, updateContentControllers, updateMessageControllers } from '../controllers/messageControllers.js';
 
-const messageRouter = Router();
+const messageRouter=Router();
 
-messageRouter.post('/message', createMessageController)
+messageRouter.post('/messages', createMessageController)
 
-messageRouter.get('/messages', getAllMessagesController)
+messageRouter.get('/messages', getAllMessagesController )
 
 messageRouter.get('/messages/single/:MessageID', getSingleMessageController)
 
@@ -18,4 +17,3 @@ messageRouter.delete('/messages/delete/:MessageID', deleteMessageController)
 
 
 export default messageRouter;
-

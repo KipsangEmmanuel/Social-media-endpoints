@@ -7,22 +7,23 @@ import {poolRequest,sql} from '../dbconnect/dbConnect.js'
 dotenv.config();
 
 // Register post service
-export const createMessageService = async (message) => {
+export const createMessageService=async(message)=>{
+  
   try {
-      const result = await poolRequest()
-          .input('MessageID', sql.VarChar, message.MessageID) 
-          .input('SenderID', sql.VarChar, message.SenderID)
-          .input('ReceiverID', sql.VarChar, message.ReceiverID)
-          .input('Content', sql.VarChar, message.Content)
-          .input('MessageDate', sql.DateTime, message.MessageDate)
-          .query('INSERT INTO Message (MessageID, SenderID, ReceiverID, Content, MessageDate) VALUES (@MessageID, @SenderID, @ReceiverID, @Content, @MessageDate)')
-      console.log('results', result);
-      return result;
+    const result=await poolRequest()
+    .input('MessageID', sql.VarChar,message.MessageID  )
+    .input('SenderID', sql.VarChar,message.SenderID )
+    .input('ReceiverID', sql.VarChar,message.ReceiverID )
+    .input('Content', sql.VarChar,message.Content)
+    .input('MessageDate', sql.DateTime,message.MessageDate)
+    .query('INSERT INTO Message (MessageID,SenderID,ReceiverID,Content,MessageDate) VALUES(@MessageID,@SenderID,@ReceiverID,@Content,@MessageDate)')
+    console.log('results',result);
+    return result;
+
   } catch (error) {
-      return error;
+    return error
   }
 };
-
      
 
 // updating post details based on the id
@@ -30,7 +31,7 @@ export const createMessageService = async (message) => {
 export const updateMessageService=async(updateMessage)=>{
   try {
     const updatedMessage=await poolRequest()
-    .input('MessageID ', sql.VarChar,updateMessage.MessageID  )
+    .input('MessageID', sql.VarChar,updateMessage.MessageID  )
     .input('Content', sql.VarChar,updateMessage.Content)
     .input('MessageDate', sql.DateTime,updateMessage.MessageDate)
   .query(`UPDATE Message  SET MessageID=@MessageID, Content = @Content, MessageDate = @MessageDate  WHERE  MessageID = @MessageID`)
@@ -86,5 +87,3 @@ export const deleteMessageServices=async(MessageID)=>{
   console.log('single message',deletedMessage.recordset);
   return deletedMessage.recordset;
 }
-
-

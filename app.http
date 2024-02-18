@@ -301,12 +301,11 @@ Content-Type: application/json
 
 
 ### updating a single message
-PUT http://localhost:8500/api/v1/message/update/5fc37f6e-c058-4d9e-8ce8-bb9c60aeab10
+PUT http://localhost:8500/api/v1/messages/update/5c58acd7-a66b-4659-8543-71e39a569a94
 Content-Type: application/json
 
 {
-    "Content": "Hello"
-
+    "Content": "Content updated"
 }
 
 ### Fetching/getting all messages
@@ -314,7 +313,7 @@ GET http://localhost:8500/api/v1/messages/
 
 
 ### Fetching/getting single messaget
-GET http://localhost:8500/api/v1/message/single/
+GET http://localhost:8500/api/v1/message/single/5c58acd7-a66b-4659-8543-71e39a569a94
 
 ### Deleting a single message
 DELETE  http://localhost:8500/api/v1/message/delete/
