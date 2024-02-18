@@ -64,7 +64,7 @@ export const getSingleMessageServices=async(MessageID)=>{
   const singleMessage= await poolRequest()
   .input('MessageID', sql.VarChar,MessageID)
   .query('SELECT * FROM Message WHERE MessageID = @MessageID ')
-  console.log('single post',singleMessage.recordset);
+  console.log('single message',singleMessage.recordset);
   return singleMessage.recordset;
 }
 
