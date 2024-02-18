@@ -81,7 +81,7 @@ export const updateUserPasswordService=async(updatePass)=>{
     .input('Password', sql.VarChar,updatePass.Password)
     .input('UserID', sql.VarChar,updatePass.UserID)
   .query(`UPDATE tbl_user  SET Password = @Password  WHERE  userID = @userID`)
-console.log("user pass",updatePass);
+  // console.log("user pass",updatePass);
   return updatedPass
   
   } catch (error) {
@@ -108,8 +108,8 @@ export const findUserByEmailService = async(email) => {
      return result.recordset.length > 0 ? result.recordset[0] : null
     
   } catch (error) {
-    throw new Error(error.message)
-    
+    console.log(error)
+    return error    
   }
 
 }

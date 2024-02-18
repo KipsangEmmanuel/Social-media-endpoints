@@ -34,7 +34,6 @@ app.use('/api/v1',messageRouter)
 
 
 
-
 app.listen(PORT,()=>{
     logger.info(`server running on port : ${PORT}`);
 })

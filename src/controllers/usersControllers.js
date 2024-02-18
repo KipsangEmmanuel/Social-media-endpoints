@@ -10,6 +10,7 @@ export const createNewUserController = async (req, res) => {
       const { Username, Email, Password, TagName, Location } = req.body;
       // console.log(req.body);
 
+      //check if the user exist
       const existingUser = await findUserByEmailService(Email);
       if(existingUser) {
         return res.status(400).json({
@@ -61,7 +62,7 @@ export const createNewUserController = async (req, res) => {
     }
   };
   
-
+  
   export const updateUserControllers = async (req, res) => {
     try {
       const { Username, TagName, Location } = req.body;

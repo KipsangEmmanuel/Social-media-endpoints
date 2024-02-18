@@ -4,10 +4,10 @@ POST http://localhost:8500/api/v1/users/register
 Content-Type: application/json
 
 {
-    "Username": "Daniel Karanja" ,
-    "Email": "karanja@gmail.com" ,
-    "Password": "Daniel123",
-    "TagName": "dan",
+    "Username": "William Ruto" ,
+    "Email": "william@gmail.com" ,
+    "Password": "William123",
+    "TagName": "willi",
     "Location": "Nairobi"
 }
 
@@ -295,17 +295,17 @@ Content-Type: application/json
 
 {
     "SenderID": "e7c60909-858f-4881-8738-5061b8f20644",
-    "ReceiverID": "eaf8c520-0851-4681-8de3-2646c0492744",
-    "Content": "Vipi nigga!"
+    "ReceiverID": "ed11fa82-2334-43c5-9635-66e115feb57c",
+    "Content": "Last one"
 }
 
 
 ### updating a single message
-PUT http://localhost:8500/api/v1/message/update/
+PUT http://localhost:8500/api/v1/message/update/5fc37f6e-c058-4d9e-8ce8-bb9c60aeab10
 Content-Type: application/json
 
 {
-    "MessageID": ""
+    "Content": "Hello"
 
 }
 

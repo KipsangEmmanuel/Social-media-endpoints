@@ -2,36 +2,36 @@ import {v4} from 'uuid'
 import { notAuthorized, sendCreated, sendDeleteSuccess, sendServerError} from "../helpers/helperFunctions.js"
 import { createPostValidator } from '../validators/postsValidators.js';
 import { createMessageValidator } from '../validators/messageValidators.js';
-import { createMessageService } from '../services/messageService.js';
+import { createMessageService, getAllMessagesService } from '../services/messageService.js';
 import { getAllPostsService } from '../services/postService.js';
 
 
 export const createMessageController = async (req, res) => {
-    try {
-      const { SenderID, Content } = req.body;
-      console.log(req.body);
+  try {
+    const { SenderID, ReceiverID, Content } = req.body;
+    // console.log(req.body);
 
-      const MessageID = v4();
+    const MessageID = v4();
 
-      const { error } = createMessageValidator({ Content });
-      console.log("error", error);
-      if (error) {
-        return res.status(400).send(error.details[0].message);
+    const { error } = createMessageValidator({ Content });
+    // console.log("error", error);
+    if (error) {
+      return res.status(400).send(error.details[0].message);
+    } else {
+      const MessageDate = new Date();
+      const messageData = { MessageID, SenderID, ReceiverID, Content, MessageDate };
+
+      const result = await createMessageService(messageData);
+
+      if (result.message) {
+        sendServerError(res, result.message);
       } else {
-        const MessageDate = new Date();
-        const messageData = { MessageID, SenderID, Content, MessageDate };
-
-        const result = await createMessageService(messageData);
-
-        if (result.message) {
-          sendServerError(res, result.message);
-        } else {
-          sendCreated(res, 'Message created successfully');
-        }
+        sendCreated(res, 'Message created successfully');
       }
-    } catch (error) {
-      sendServerError(res, error.erro);
     }
+  } catch (error) {
+    sendServerError(res, error.erro);
+  }
 };
 
 
@@ -101,12 +101,12 @@ export const createMessageController = async (req, res) => {
 
   export const getAllMessagesController = async (req, res) => {
     try {
-      const results = await getAllPostsService()
-        const posts=results.recordset
-        console.log(posts);
-      res.status(200).json({ Posts: posts });
+      const results = await getAllMessagesService()
+        const messages=results.recordset
+        console.log(messages);
+      res.status(200).json({ messages: messages });
     } catch (error) {
-      console.error("Error fetching all posts:", error);
+      console.error("Error fetching all messages:", error);
       res.status(500).json("Internal server error");
     }
   };
