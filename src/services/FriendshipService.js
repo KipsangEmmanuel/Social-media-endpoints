@@ -100,10 +100,19 @@ export const getAllFriendshipsService=async()=>{
 }
 
 // Fetching delete friendship
-export const deleteFriendshipServices=async(FriendshipID)=>{
-  const deletedFriendship= await poolRequest()
-  .input('FriendshipID', sql.VarChar,FriendshipID)
-  .query('DELETE FROM FriendshipID WHERE PostID = @FriendshipID ')
-  console.log('single FriendshipID',deletedFriendship.recordset);
-  return deletedFriendship.recordset;
-}
+export const deleteFriendshipServices = async (FriendshipID) => {
+  try {
+    const deletedFriendship = await poolRequest()
+      .input('FriendshipID', sql.VarChar, FriendshipID)
+      .query('DELETE FROM Friendship WHERE FriendshipID = @FriendshipID');
+
+    console.log('Deleted friendship:', deletedFriendship);
+
+    return deletedFriendship;
+  } catch (error) {
+    console.error('Error deleting friendship:', error);
+    throw error;
+  }
+};
+
+

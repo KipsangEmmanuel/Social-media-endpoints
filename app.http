@@ -346,15 +346,15 @@ GET http://localhost:8500/api/v1/friendships/
 
 
 ### Fetching/getting all individual user friends
-GET http://localhost:8500/api/v1/user/friendships/88c681ad-1cc7-4b18-a777-70717283edce
+GET http://localhost:8500/api/v1/user/friendships/e7c60909-858f-4881-8738-5061b8f20644
 
 
 ### Fetching/getting single friendship
-GET http://localhost:8500/api/v1/friendships/single/96e7428c-4de7-478e-884e-9e3bef8cad5a
+GET http://localhost:8500/api/v1/friendships/single/075667c8-c5d5-4b97-8570-a9f6cb37547f
 
 
 ### Deleting a single pfriend
-DELETE  http://localhost:8500/api/v1/friendships/delete/2e804b63-8aba-4c68-b05e-7afece1efbb2
+DELETE http://localhost:8500/api/v1/friendships/delete/075667c8-c5d5-4b97-8570-a9f6cb37547f
 
 
 
