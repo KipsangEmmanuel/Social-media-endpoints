@@ -211,8 +211,8 @@ POST http://localhost:8500/api/v1/groups
 Content-Type: application/json
 
 {
-    "GroupName": "Python group" ,
-    "Description": "SQL project" 
+    "GroupName": "react group" ,
+    "Description": "React Fetching of endpoints" 
 }
 
 
@@ -321,6 +321,40 @@ DELETE  http://localhost:8500/api/v1/messages/delete/6b032f70-1da4-4cce-9d9f-510
 
 
 
+                ## FRIENDSHIP ENDPOINTS
+### Create friends
+POST http://localhost:8500/api/v1/friendships
+Content-Type: application/json
+
+{
+    "User1ID": "e7c60909-858f-4881-8738-5061b8f20644" ,
+    "User2ID": "ed11fa82-2334-43c5-9635-66e115feb57c"
+}
+
+        
+### updating a single friendship
+PATCH http://localhost:8500/api/v1/friendships/patch/96e7428c-4de7-478e-884e-9e3bef8cad5a
+Content-Type: application/json
+
+{
+
+}
+
+
+### Fetching/getting all friends
+GET http://localhost:8500/api/v1/friendships/
+
+
+### Fetching/getting all individual user friends
+GET http://localhost:8500/api/v1/user/friendships/88c681ad-1cc7-4b18-a777-70717283edce
+
+
+### Fetching/getting single friendship
+GET http://localhost:8500/api/v1/friendships/single/96e7428c-4de7-478e-884e-9e3bef8cad5a
+
+
+### Deleting a single pfriend
+DELETE  http://localhost:8500/api/v1/friendships/delete/2e804b63-8aba-4c68-b05e-7afece1efbb2
 
 
 

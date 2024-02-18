@@ -4,7 +4,6 @@ import dotenv from 'dotenv'
 import {poolRequest,sql} from '../dbconnect/dbConnect.js'
 
 dotenv.config();
-
 // Register Comment service
 export const createCommentService=async(comment)=>{
   

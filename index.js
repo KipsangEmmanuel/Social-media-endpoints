@@ -11,6 +11,7 @@ import commentRouter from './src/routes/commentRoutes.js';
 import groupRouter from './src/routes/groupRoutes.js';
 import eventRouter from './src/routes/eventRoutes.js';
 import messageRouter from './src/routes/messageRoutes.js';
+import friendshipRouter from './src/routes/friendshipRoutes.js';
 
 const app=express();
 
@@ -31,6 +32,8 @@ app.use('/api/v1',commentRouter)
 app.use('/api/v1',groupRouter)
 app.use('/api/v1',eventRouter)
 app.use('/api/v1',messageRouter)
+app.use('/api/v1',friendshipRouter)
+
 
 
 app.listen(PORT,()=>{
