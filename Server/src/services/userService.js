@@ -134,3 +134,4 @@ export const deleteUserServices=async(UserID)=>{
   console.log('single user',deletedUser.recordset);
   return deletedUser.recordset;
 }
+
